@@ -73,6 +73,8 @@ button {
   color: transparent;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  user-select: none;
 }
 
 .side-zone--left {
@@ -91,6 +93,54 @@ button {
 
 .side-zone--right:focus-visible {
   background: linear-gradient(-90deg, rgba(255, 77, 0, .14), transparent);
+}
+
+.gesture-zone {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  user-select: none;
+}
+
+.gesture-zone:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, .9);
+  outline-offset: -6px;
+}
+
+.time-readout {
+  position: absolute;
+  z-index: 7;
+  top: max(14px, env(safe-area-inset-top));
+  left: 50%;
+  min-width: 108px;
+  translate: -50% -8px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, .13);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .58);
+  color: rgba(255, 255, 255, .92);
+  font-size: .82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .035em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 8px #000;
+  opacity: 0;
+  transition: opacity 160ms ease, translate 220ms ease;
+  pointer-events: none;
+}
+
+.time-readout.is-visible {
+  translate: -50% 0;
+  opacity: 1;
 }
 
 .now-playing {
