@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="A continuous, distraction-free stream of motivational videos." />
+    <title>Momentum</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M17 43 31 13l2 16h14L27 53l3-18z' fill='%23ff4d00'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="stage" aria-label="Momentum motivational video player">
+      <video id="video-a" class="player is-visible" playsinline preload="auto" aria-hidden="true"></video>
+      <video id="video-b" class="player" playsinline preload="auto" aria-hidden="true"></video>
+
+      <div class="shade" aria-hidden="true"></div>
+      <div id="buffering" class="buffering" role="status" aria-live="polite" aria-label="Loading video">
+        <span></span>
+      </div>
+
+      <button id="previous" class="side-zone side-zone--left" type="button" aria-label="Previous video"></button>
+      <button id="next" class="side-zone side-zone--right" type="button" aria-label="Next video"></button>
+
+      <div class="now-playing" aria-live="polite">
+        <span id="title"></span>
+        <span id="count"></span>
+      </div>
+
+      <button id="start" class="start" type="button" hidden>
+        <span class="start__mark" aria-hidden="true"></span>
+        <span>Tap to start</span>
+      </button>
+
+      <div id="error" class="error" role="alert" hidden>
+        <p>This clip couldn’t load.</p>
+        <button id="retry" type="button">Try again</button>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

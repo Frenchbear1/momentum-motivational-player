@@ -1,0 +1,6 @@
+work/
+outputs/
+.sites-runtime/
+.openai/
+*.log
+
