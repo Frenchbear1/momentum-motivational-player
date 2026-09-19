@@ -24,6 +24,8 @@ const clips = [
   ["Time for War", "media/23-time-for-war.mp4"]
 ];
 
+const mediaVersion = "mobile-h264-v1";
+
 const players = [document.querySelector("#video-a"), document.querySelector("#video-b")];
 const previousButton = document.querySelector("#previous");
 const nextButton = document.querySelector("#next");
@@ -145,7 +147,7 @@ async function togglePlayback() {
 function setSource(player, targetIndex) {
   const source = clips[targetIndex][1];
   if (player.dataset.source !== source) {
-    player.src = source;
+    player.src = `${source}?v=${mediaVersion}`;
     player.dataset.source = source;
     player.load();
   }
