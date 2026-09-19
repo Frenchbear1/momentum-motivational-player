@@ -154,7 +154,7 @@ function setSource(player, targetIndex) {
 function queueNext() {
   const standby = players[1 - active];
   setSource(standby, clipIndex(index + 1));
-  standby.preload = "auto";
+  standby.preload = "metadata";
 }
 
 function waitUntilPlayable(player) {
@@ -164,7 +164,7 @@ function waitUntilPlayable(player) {
     const timeout = window.setTimeout(() => {
       cleanup();
       reject(new Error("Video load timed out"));
-    }, 20000);
+    }, 45000);
 
     const cleanup = () => {
       window.clearTimeout(timeout);
